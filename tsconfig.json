@@ -33,7 +33,8 @@
     }
   },
   // 指定要包括在编译中的文件或文件夹。这里包括 src 目录下的 TypeScript、声明文件和 React 文件以及 vite.config.ts 文件。
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "vite.config.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "vite.config.ts", "src/routers/utils/index.ts",
+    "src/components/lazyLoad"],
   //  指定要排除在编译之外的文件或文件夹。这里排除了 node_modules、dist 目录以及所有的 JavaScript 文件。
   "exclude": ["node_modules", "dist", "**/*.js"],
 
