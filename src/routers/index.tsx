@@ -5,12 +5,15 @@ import { lazy } from "react";
 // import LayoutIndex from "@/layouts";
 
 // 导入所有router
-const metaRouters = import.meta.glob("./modules/*.tsx", { eager: true });
+// const metaRouters = import.meta.glob("./modules/*.tsx", { eager: true });
+const metaRouters: Record<string, any> = import.meta.glob("./modules/*.tsx", { eager: true });
 
 // * 处理路由
 export const routerArray: RouteObject[] = [];
 Object.keys(metaRouters).forEach((item: any) => {
+	// @ts-ignore
 	Object.keys(metaRouters[item]).forEach((key: any) => {
+		// @ts-ignore
 		routerArray.push(...metaRouters[item][key]);
 	});
 });
