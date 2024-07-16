@@ -22,6 +22,7 @@ module.exports = {
         'selector-class-pattern': null, // 强制选择器类名的格式
         'value-no-vendor-prefix': null, // 关闭 vendor-prefix(为了解决多行省略 -webkit-box)
         'at-rule-no-unknown': null,
+        'no-invalid-double-slash-comments': null, // 是否禁止无效的双斜杠注释
         'selector-pseudo-class-no-unknown': [
             true,
             {
