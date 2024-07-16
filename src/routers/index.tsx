@@ -1,13 +1,26 @@
 import { RouteObject } from "@/routers/interface";
 import { Navigate, useRoutes } from "react-router-dom";
-import lazyLoad from "@/components/lazyLoad/lazyLoad";
+import lazyLoad from "@/components/lazyLoad/index";
 import { lazy } from "react";
-import LayoutIndex from "@/layouts";
+// import LayoutIndex from "@/layouts";
+
+// 导入所有router
+const metaRouters = import.meta.glob("./modules/*.tsx", { eager: true });
+
+// * 处理路由
+export const routerArray: RouteObject[] = [];
+Object.keys(metaRouters).forEach((item: any) => {
+	Object.keys(metaRouters[item]).forEach((key: any) => {
+		routerArray.push(...metaRouters[item][key]);
+	});
+});
+console.log("routerArray", routerArray);
 
 export const rootRouter: RouteObject[] = [
 	{
 		path: "/",
-		element: <Navigate to="/home" />
+		// element: <Navigate to="/home" />
+		element: <Navigate to="/home/index" />
 	},
 	{
 		path: "/login",
@@ -18,15 +31,8 @@ export const rootRouter: RouteObject[] = [
 			key: "login"
 		}
 	},
-	{
-		element: <LayoutIndex name="我是参数" />,
-		children: [
-			{
-				path: "/home",
-				element: lazyLoad(lazy(() => import("@/views/home")))
-			}
-		]
-	},
+	//
+	...routerArray,
 	{
 		path: "/404",
 		element: lazyLoad(lazy(() => import("@/views/notFound")))

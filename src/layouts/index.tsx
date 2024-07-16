@@ -9,9 +9,7 @@ import "./index.less";
 
 const { Sider, Content } = Layout;
 
-const LayoutIndex = (props: { name: string }) => {
-	console.log(props);
-
+const LayoutIndex = () => {
 	// const { pathname } = useLocation();
 
 	return (
