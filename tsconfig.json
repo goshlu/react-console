@@ -1,11 +1,49 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
+  "compilerOptions": {
+    "target": "ESNext", // target: 指定编译生成的 JavaScript 代码的目标版本。这里设置为 "ESNext"，表示编译为最新的 ECMAScript 标准。
+    "useDefineForClassFields": true, // 当你使用 TypeScript 的类字段声明语法时，该选项将确保 TypeScript 为你的类字段生成正确的定义（define）。
+    "lib": [ // 指定编译过程中需要引入的库文件。这里包括 "DOM"、"DOM.Iterable" 和 "ESNext"。
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false, // 是否允许编译器编译 JavaScript 文件。
+    "skipLibCheck": true, // 是否跳过对声明文件（.d.ts）的类型检查。
+    "esModuleInterop": false, // 是否启用 JavaScript 模块的import语句兼容性。
+    "allowSyntheticDefaultImports": true, // 是否允许导入模块时不明确指定导出的名称。
+    "strict": true, // 是否启用所有严格的类型检查选项。
+    /* Enable all strict type-checking options. */
+    "forceConsistentCasingInFileNames": true, // 强制文件名在模块内的引用中保持一致的大小写。
+    "module": "ESNext", // 指定生成的模块化代码的模块系统。这里设置为 "ESNext"，表示使用 ECMAScript 的模块系统。
+    "moduleResolution": "Node", // 指定模块的解析策略。这里设置为 "Node"，表示使用 Node.js 的模块解析策略。
+    "resolveJsonModule": true, // 是否允许导入 JSON 文件。
+    "isolatedModules": true, // 是否将每个文件作为单独的模块处理，而不在全局作用域中解析模块。
+    "noEmit": true, // 是否在编译过程中生成任何 JavaScript 文件。
+    "jsx": "react-jsx", // 指定 JSX 语法的转换方式。这里设置为 "react-jsx"，表示支持 React 的 JSX 语法。
+    // 解析非相对模块名的基准目录
+    "baseUrl": "./", // 解析非相对模块名的基准目录。
+    // 模块名到基于 baseUrl 的路径映射的列表
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@": [
+        "src"
+      ]
     }
-  ]
+  },
+  // 指定要包括在编译中的文件或文件夹。这里包括 src 目录下的 TypeScript、声明文件和 React 文件以及 vite.config.ts 文件。
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "vite.config.ts"],
+  //  指定要排除在编译之外的文件或文件夹。这里排除了 node_modules、dist 目录以及所有的 JavaScript 文件。
+  "exclude": ["node_modules", "dist", "**/*.js"],
+
+//  "files": [],
+//  "references": [
+//    {
+//      "path": "./tsconfig.app.json"
+//    },
+//    {
+//      "path": "./tsconfig.node.json"
+//    }
+//  ]
 }
