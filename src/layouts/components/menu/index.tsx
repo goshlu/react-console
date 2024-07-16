@@ -5,6 +5,8 @@ import { Menu, type MenuProps } from "antd";
 import Logo from "./components/logo";
 import { rootRouter } from "@/routers";
 import { globalStore } from "@/stores";
+import { observer } from "mobx-react";
+
 import "./index.less";
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -45,10 +47,12 @@ const handleMenuData = (rootRouter: any[], authRouter: any[], newArr: MenuItem[]
 	return newArr;
 };
 
-const LayoutMenu = () => {
+const LayoutMenu = observer(() => {
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
-	const { permissions } = globalStore;
+	// const { permissions } = globalStore;
+
+	const { permissions, isCollapse } = globalStore;
 
 	const [menuActive, setMenuActive] = useState(pathname);
 	// const [menuList] = useState([
@@ -69,7 +73,7 @@ const LayoutMenu = () => {
 
 	return (
 		<div className="menu">
-			<Logo />
+			<Logo isCollapse={isCollapse} />
 			<Menu
 				theme="dark"
 				mode="inline"
@@ -86,6 +90,6 @@ const LayoutMenu = () => {
 			/>
 		</div>
 	);
-};
+});
 
 export default LayoutMenu;
