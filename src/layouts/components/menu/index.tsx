@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 // import { HomeOutlined, TableOutlined, AreaChartOutlined } from "@ant-design/icons";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, type Location } from "react-router-dom";
 import { Menu, type MenuProps } from "antd";
 import Logo from "./components/logo";
 import { rootRouter } from "@/routers";
 import { globalStore } from "@/stores";
 import { observer } from "mobx-react";
+import useLocationListen from "@/hooks/useLocationListen";
 
 import "./index.less";
 
@@ -48,13 +49,13 @@ const handleMenuData = (rootRouter: any[], authRouter: any[], newArr: MenuItem[]
 };
 
 const LayoutMenu = observer(() => {
-	const { pathname } = useLocation();
+	// const { pathname } = useLocation();
 	const navigate = useNavigate();
 	// const { permissions } = globalStore;
 
 	const { permissions, isCollapse } = globalStore;
 
-	const [menuActive, setMenuActive] = useState(pathname);
+	const [menuActive, setMenuActive] = useState("");
 	// const [menuList] = useState([
 	// 	getItem("首页", "/home", <HomeOutlined />),
 	// 	getItem("数据大屏", "/dataScreen", <AreaChartOutlined />),
@@ -66,10 +67,14 @@ const LayoutMenu = observer(() => {
 	const [menuList, setMenuList] = useState<any[]>([]);
 
 	useEffect(() => {
-		console.log("pathname", pathname);
-		setMenuActive(pathname);
+		// setMenuActive(pathname);
 		setMenuList(handleMenuData(rootRouter, permissions));
-	}, [pathname]);
+	}, []);
+
+	useLocationListen((location: Location) => {
+		const { pathname } = location;
+		setMenuActive(pathname);
+	});
 
 	return (
 		<div className="menu">

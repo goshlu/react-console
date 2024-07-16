@@ -7,7 +7,7 @@ const homeRouter = [
 	{
 		element: <LayoutIndex />,
 		meta: {
-			title: "超级表格",
+			title: "订单",
 			icon: <TableOutlined />
 		},
 		path: "/proTable",

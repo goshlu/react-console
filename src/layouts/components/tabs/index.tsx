@@ -1,11 +1,15 @@
 import { Tabs } from "antd";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { type Location } from "react-router-dom";
+import useLocationListen from "@/hooks/useLocationListen";
+
 import "./index.less";
 
 const LayoutTabs = () => {
-	const { pathname } = useLocation();
-	const [activeValue, setActiveValue] = useState(pathname);
+	// const { pathname } = useLocation();
+	const [activeValue, setActiveValue] = useState("");
 	const [tabsList] = useState([
 		{
 			label: "首页",
@@ -53,9 +57,10 @@ const LayoutTabs = () => {
 		// }
 	]);
 
-	useEffect(() => {
+	useLocationListen((location: Location) => {
+		const { pathname } = location;
 		setActiveValue(pathname);
-	}, [pathname]);
+	});
 
 	const tabsClick = (path: string) => {
 		console.log(path);

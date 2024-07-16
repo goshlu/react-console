@@ -10,7 +10,7 @@ const AuthRouter = (props: { children: JSX.Element }) => {
 	const { permissions } = globalStore;
 
 	const { pathname } = useLocation();
-	console.log("pathname", location, pathname);
+	// console.log("pathname", location, pathname);
 
 	// * Static Router(静态路由，必须配置首页地址，否则不能进首页获取菜单、按钮权限等数据)，
 	// 获取数据的时候会loading，所有配置首页地址也没问题
