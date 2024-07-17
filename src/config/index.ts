@@ -15,3 +15,6 @@ export const ROUTER_CONFIG: Record<string, string> = {
 	useHooks1: "使用 Hooks1",
 	useHooks2: "使用 Hooks2"
 };
+
+// 应用相关
+export const ThemeColors = ["#1677ff", "#ee3f4d", "#c08eaf", "#95509f", "#722ed1", "#00b96b", "#7cb305", "#13c2c2", "#d6a01d"];

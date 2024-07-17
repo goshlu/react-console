@@ -3,58 +3,21 @@ import { Tabs } from "antd";
 // import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { type Location } from "react-router-dom";
+import { globalStore } from "@/stores";
+import { observer } from "mobx-react";
 import useLocationListen from "@/hooks/useLocationListen";
 
 import "./index.less";
 
-const LayoutTabs = () => {
+const LayoutTabs = observer(() => {
 	// const { pathname } = useLocation();
 	const [activeValue, setActiveValue] = useState("");
+	const { themeConfig } = globalStore;
 	const [tabsList] = useState([
 		{
 			label: "首页",
 			key: "/home"
 		}
-		// {
-		// 	label: "超级表格",
-		// 	key: "/proTable"
-		// },
-		// {
-		// 	label: "数据大屏",
-		// 	key: "/dataScreen"
-		// },
-		// {
-		// 	label: "使用 Hooks",
-		// 	key: "/useHooks"
-		// },
-		// {
-		// 	label: "使用 Component",
-		// 	key: "/useComponent"
-		// },
-		// {
-		// 	label: "数据可视化",
-		// 	key: "/dashboard"
-		// },
-		// {
-		// 	label: "内嵌页面",
-		// 	key: "/embedded"
-		// },
-		// {
-		// 	label: "基础 Form",
-		// 	key: "/basicForm"
-		// },
-		// {
-		// 	label: "校验 Form",
-		// 	key: "/validateForm"
-		// },
-		// {
-		// 	label: "动态 Form",
-		// 	key: "/dynamicForm"
-		// },
-		// {
-		// 	label: "水型图",
-		// 	key: "/waterChart"
-		// }
 	]);
 
 	useLocationListen((location: Location) => {
@@ -80,8 +43,9 @@ const LayoutTabs = () => {
 				delTabs(path as string);
 			}}
 			items={tabsList}
+			style={{ background: !themeConfig.isDarkMode ? "#fff" : undefined }}
 		/>
 	);
-};
+});
 
 export default LayoutTabs;
