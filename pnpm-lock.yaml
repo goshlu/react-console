@@ -20,6 +20,9 @@ importers:
       antd:
         specifier: ^5.19.2
         version: 5.19.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      js-md5:
+        specifier: ^0.8.3
+        version: 0.8.3
       mobx:
         specifier: ^6.13.0
         version: 6.13.0
@@ -1901,6 +1904,9 @@ packages:
     resolution: {integrity: sha512-61btcOHNnLnsOdtLgA5efqQWjnSi/vow5HbI7HMdKKWqvrKR1bLK3BPlJn9gcSaP2ewuamUSMB5XEy76KUIS2w==}
     engines: {node: '>=10'}
     hasBin: true
+
+  js-md5@0.8.3:
+    resolution: {integrity: sha512-qR0HB5uP6wCuRMrWPTrkMaev7MJZwJuuw4fnwAzRgP4J4/F8RwtodOKpGp4XpqsLBFzzgqIO42efFAyz2Et6KQ==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -5290,6 +5296,8 @@ snapshots:
       chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
+
+  js-md5@0.8.3: {}
 
   js-tokens@4.0.0: {}
 

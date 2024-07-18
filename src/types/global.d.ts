@@ -31,3 +31,5 @@ declare interface MenuInfo {
 	item: React.ReactInstance;
 	domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
 }
+
+declare module "js-md5";

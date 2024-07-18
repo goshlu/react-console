@@ -23,7 +23,7 @@ export const rootRouter: RouteObject[] = [
 	{
 		path: "/",
 		// element: <Navigate to="/home" />
-		element: <Navigate to="/home/index" />
+		element: <Navigate to="/login" />
 	},
 	{
 		path: "/login",
