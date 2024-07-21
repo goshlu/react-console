@@ -32,6 +32,9 @@ importers:
       mobx:
         specifier: ^6.13.0
         version: 6.13.0
+      mobx-persist-store:
+        specifier: ^1.1.5
+        version: 1.1.5(mobx@6.13.0)
       mobx-react:
         specifier: ^9.1.1
         version: 9.1.1(mobx@6.13.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2109,6 +2112,11 @@ packages:
   minimist-options@4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
     engines: {node: '>= 6'}
+
+  mobx-persist-store@1.1.5:
+    resolution: {integrity: sha512-STVTfYErC4Vw58zbAiz/Em4bmwi2sa+zXudxHwRtJvwiEejrJ6W1FcFDRskZyjrGLNOcrT0dDK2VDplV2cgQig==}
+    peerDependencies:
+      mobx: '*'
 
   mobx-react-lite@4.0.7:
     resolution: {integrity: sha512-RjwdseshK9Mg8On5tyJZHtGD+J78ZnCnRaxeQDSiciKVQDUbfZcXhmld0VMxAwvcTnPEHZySGGewm467Fcpreg==}
@@ -5563,6 +5571,10 @@ snapshots:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
+
+  mobx-persist-store@1.1.5(mobx@6.13.0):
+    dependencies:
+      mobx: 6.13.0
 
   mobx-react-lite@4.0.7(mobx@6.13.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

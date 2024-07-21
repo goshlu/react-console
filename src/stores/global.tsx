@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { makePersistable } from "mobx-persist-store";
 
 interface IThemeConfig {
 	themeColor: string; // 主题色
@@ -22,6 +23,11 @@ class Global {
 
 	constructor() {
 		makeAutoObservable(this);
+		makePersistable(this, {
+			name: "global",
+			properties: ["permissions", "userInfo", "themeConfig", "tabsList", "menuList"],
+			storage: window.localStorage
+		});
 	}
 
 	setIsCollapse(isCollapse: boolean) {
